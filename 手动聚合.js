@@ -108,8 +108,16 @@ function main(config) {
       ]
     },
     {
-      name: "特定服务",
+      name: "AI服务",
       icon: "https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png",
+      type: "select",
+      proxies: [
+        "日本节点", "节点选择", "香港节点", "台湾节点", "狮城节点", "自动选择", "美国节点", "韩国节点", "手动选择1", "手动选择2", "手动选择3", "手动选择4", "手动聚合", "全球直连"
+      ]
+    },
+    {
+    name: "TikTok",
+      icon: "https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok_1.png",
       type: "select",
       proxies: [
         "日本节点", "节点选择", "香港节点", "台湾节点", "狮城节点", "自动选择", "美国节点", "韩国节点", "手动选择1", "手动选择2", "手动选择3", "手动选择4", "手动聚合", "全球直连"
@@ -311,7 +319,7 @@ function main(config) {
       "include-all": true,
       type: "select",
       proxies: [
-        "手动选择1", "手动选择2", "手动选择3", "手动选择4", "节点选择", "手动聚合", "自动选择", "全球直连", "电报消息", "特定服务", "油管视频", "奈飞视频", "巴哈姆特", "哔哩哔哩", "国际媒体", "墙内媒体", "微软搜索", "微软云盘", "微软服务", "谷歌服务", "苹果服务", "游戏平台", "广告拦截", "漏网之鱼", "香港节点", "台湾节点", "狮城节点", "日本节点", "美国节点", "韩国节点"
+        "手动选择1", "手动选择2", "手动选择3", "手动选择4", "节点选择", "手动聚合", "自动选择", "全球直连", "电报消息", "AI服务", "TikTok", "油管视频", "奈飞视频", "巴哈姆特", "哔哩哔哩", "国际媒体", "墙内媒体", "微软搜索", "微软云盘", "微软服务", "谷歌服务", "苹果服务", "游戏平台", "广告拦截", "漏网之鱼", "香港节点", "台湾节点", "狮城节点", "日本节点", "美国节点", "韩国节点"
       ]
     }
   ];
@@ -461,9 +469,16 @@ function main(config) {
       format: "text",
       type: "http"
     },
-    OpenAi: {
-      url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list",
-      path: "./ruleset/OpenAi.list",
+    AI: {
+      url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/AI.list",
+      path: "./ruleset/AI.list",
+      behavior: "classical",
+      interval: 86400,
+      format: "text",
+      type: "http"
+    },
+    TikTok: {
+      url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml",
       behavior: "classical",
       interval: 86400,
       format: "text",
@@ -611,24 +626,6 @@ function main(config) {
     "RULE-SET,ProgramAD,广告拦截",
     "RULE-SET,BanProgramAD,广告拦截",
     "RULE-SET,AdBlock_Reject,广告拦截",
-    "DOMAIN-SUFFIX,tiktok.com,特定服务",
-    "DOMAIN-SUFFIX,tiktokv.com,特定服务",
-    "DOMAIN-SUFFIX,tiktokcdn.com,特定服务",
-    "DOMAIN-SUFFIX,byteoversea.com,特定服务",
-    "DOMAIN-SUFFIX,bytecdn.com,特定服务",
-    "DOMAIN-SUFFIX,capcut.com,特定服务",
-    "DOMAIN-KEYWORD,tik,特定服务",
-    "DOMAIN-SUFFIX,claude.ai,特定服务",
-    "DOMAIN-SUFFIX,anthropic.com,特定服务",
-    "DOMAIN-SUFFIX,claudeusercontent.com,特定服务",
-    "DOMAIN-SUFFIX,yahoo.co.jp,特定服务",
-    "DOMAIN-SUFFIX,yimg.jp,特定服务",
-    "DOMAIN-SUFFIX,nicovideo.jp,特定服务",
-    "DOMAIN-SUFFIX,nico.ms,特定服务",
-    "DOMAIN-SUFFIX,live.nicovideo.jp,特定服务",
-    "DOMAIN-SUFFIX,seiga.nicovideo.jp,特定服务",
-    "DOMAIN-SUFFIX,commons.nicovideo.jp,特定服务",
-    "DOMAIN-SUFFIX,news.nicovideo.jp,特定服务",
     "RULE-SET,LocalAreaNetwork,全球直连",
     "RULE-SET,UnBan,全球直连",
     "RULE-SET,SteamCN,全球直连",
@@ -637,7 +634,8 @@ function main(config) {
     "RULE-SET,Microsoft,微软服务",
     "RULE-SET,Apple,苹果服务",
     "RULE-SET,Telegram,电报消息",
-    "RULE-SET,OpenAi,特定服务",
+    "RULE-SET,AI,AI服务",
+    "RULE-SET,TikTok,TikTok",  
     "RULE-SET,Epic,游戏平台",
     "RULE-SET,Origin,游戏平台",
     "RULE-SET,Sony,游戏平台",
