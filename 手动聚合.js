@@ -7,10 +7,10 @@ function main(config) {
       icon: "https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png",
       type: "select",
       proxies: [
-        "香港节点",
-        "日本节点",
         "自动选择",
-        "占位节点"
+        "占位节点",
+        "香港节点",
+        "日本节点"
       ],
       "include-all": true,
       filter: "^(?!.*套餐)(?!.*剩余)(?!.*到期)(?!.*流量)(?!.*占位).*$"
